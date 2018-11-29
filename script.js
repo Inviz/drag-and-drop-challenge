@@ -17,7 +17,6 @@ class Component {
   // find a closest parent that can accept dragged children
   // then find the best (closest) position in its childlist
   onDragOver(e, target) {
-    //console.log('dragover', target)
     var droppable = target.getDroppableTarget(this);
     if (droppable) {
       if (droppable !== this) {
@@ -142,10 +141,11 @@ class Component {
 
     var closest = nodes[0]
     if (closest != lastPlacement)
-      return closest//.nextSibling;
+      return closest;
   }
 
   // compute absolute x,y of an element on the page
+  // Currently only uses vertical distance
   getElementXY(element) {
     var offsetX = 0;
     var offsetY = 0;
@@ -217,16 +217,19 @@ class Sidebar extends Component {
 
 
 // delegate drag events to document itself
+// Dragstart registers a component as dragged
 document.addEventListener('dragstart', function(e) {
   if (Component.dragged !== e.target.component) {
     Component.dragged = e.target.component;
     e.target.component.onDragStart(e, e.target.component)
   }
 })
+// Dragend "forgets" the dragged component
 document.addEventListener('dragend', function(e) {
   Component.dragged.onDragEnd(e)
   Component.dragged = undefined;
 })
+// Dragover repositions components
 document.addEventListener('dragover', function(e) {
   var component = e.target.component;
   if (component && Component.dragged)
