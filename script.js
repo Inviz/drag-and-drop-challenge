@@ -80,7 +80,8 @@ class Component {
 
   // check if component was dragged from sidebar (not reordered)
   inSidebar() {
-    return this.element.parentNode.classList.contains('sidebar')
+    return this.element.parentNode &&
+           this.element.parentNode.classList.contains('sidebar')
   }
 
   // check if component is unfinialized preview
@@ -204,6 +205,16 @@ class Canvas extends Component {
   }
 }
 
+// Sidebar can not be dragged
+class Sidebar extends Component {
+  canBeDragged() {
+    return false;
+  }
+  canAdopt() {
+    return false;
+  }
+}
+
 
 // delegate drag events to document itself
 document.addEventListener('dragstart', function(e) {
@@ -222,11 +233,11 @@ document.addEventListener('dragover', function(e) {
     Component.dragged.onDragOver(e, e.target.component);
 })
 
-
 // Initialize canvas and components
 document.addEventListener('DOMContentLoaded', function() {
   
   var canvas = new Canvas(document.querySelector('.canvas'))
+  var sidebar = new Sidebar(document.querySelector('.sidebar'))
 
   Array.prototype.forEach.call(document.querySelectorAll('.component'), function(component) {
     // find subclass based on element tag

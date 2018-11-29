@@ -24,6 +24,10 @@ When user drags component around, the code tries to find closest parent componen
 
 Drag events are delegated to document, so there's only a single listener for each type of event. 
 
+## Personal opinion
+
+I do think that live preview can sometimes be wonky, because it affects positions of elements. Personally, i'd prefer so that live preview does not actually reflow to document, e.g. render ghost element absolutely positioned, or rendered some sort of a line marking where element will be inserted without pushing everything below it.
+
 
 ## Caveats
 
