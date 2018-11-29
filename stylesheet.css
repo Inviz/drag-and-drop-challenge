@@ -1,0 +1,97 @@
+.component {
+	margin: 0;
+	min-height: 2rem;
+	display: block;
+	max-width: 100%;
+	width: 100%;
+	position: relative;
+	margin-top: 1rem;
+	font-family: Arial;
+	box-sizing: border-box;
+	padding: 1rem;
+}
+
+.component.preview {
+	opacity: 0.5;
+}
+
+.component .component {
+	border-left: 1px solid #ccc;
+}
+
+div.sidebar {
+	width: 20rem;
+	margin-left: .5rem;
+}
+
+aside.sidebar {
+	position: fixed;
+}
+
+aside.sidebar * {
+	font-variant: small-caps;
+	text-transform: lowercase;
+	color: #fff;
+	cursor: move;
+}
+
+img.component {
+	max-width: 320px;
+	padding: 0;
+}
+
+input.component {
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+}
+
+aside.sidebar form.component:before {
+	content: 'Form';
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-variant: small-caps;
+	text-transform: lowercase;
+}
+aside.sidebar div.component:before {
+	content: 'Div';
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-variant: small-caps;
+	text-transform: lowercase;
+}
+
+aside.sidebar > *:before {
+	color: #fff;
+}
+aside.sidebar > input,
+aside.sidebar > span,
+aside.sidebar > *:before {
+	padding-left: 0.5rem;
+	line-height: 2rem;
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: inherit;
+}
+
+
+body {
+	display: flex;
+	width: 100%;
+	box-sizing: border-box;
+}
+body, html {
+	padding: 0;
+	margin: 0;
+}
+
+
+.canvas {
+	box-sizing: border-box;
+	background: #eaeaea;
+	width: auto;
+	flex-grow: 1;
+	margin: .5rem;
+	padding: .5rem 1rem;
+}
