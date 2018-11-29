@@ -14,7 +14,7 @@ Using the library makes sense in many cases, but it sometimes makes it difficult
 
 ## Details
 
-The code uses simple Component class for both canvas and component prototypes in sidebar. When user drags component for sidebar, it creates a preview clone and injects it onto the canvas, it stays semi-transparent until the end of interaction. When user reorders components in the canvas, there's no preview and instead the action is applied immediately. Components have subclasses for different tag names, so that they can have different rules for nesting. The rules are as following:
+The code uses simple Component class for canvas, sidebar and component prototypes in sidebar. When user drags component from sidebar to canvas, it creates a preview clone and injects it onto the canvas. Component stays semi-transparent until the end of interaction. When user reorders components in the canvas, there's no preview and instead the action is applied immediately. Components have subclasses for different tag names, so that they can have different rules for nesting. The rules are as following:
 
 * `Span, img, input` can not have any children
 * `form`s can not be nested into each other
