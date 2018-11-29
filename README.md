@@ -20,7 +20,7 @@ The code uses simple Component class for both canvas and component prototypes in
 * `form`s can not be nested into each other
 * `input` can be only nested into form
 
-When user drags component around, the code tries to find closest parent component that can accept the dragged component, and then tries to find the best position for it (as close as possible to cursor). It is possible to drag tree with children around. 
+When user drags component around, the code tries to find closest parent component that can accept the dragged component, and then tries to find the best position for it (as close as possible to cursor). It is possible to drag tree with children around. Dragging component to sidebar removes it from canvas.
 
 Drag events are delegated to document, so there's only a single listener for each type of event. 
 
